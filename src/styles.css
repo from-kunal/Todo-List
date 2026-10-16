@@ -1,0 +1,105 @@
+:root {
+  --dark-black: #02040a;
+  --light-black: #0d1116;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+button {
+  font: inherit;
+  color: inherit; /* buttons now take the sidebar's white */
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+#app-container {
+  display: grid;
+  height: 100vh;
+  width: 100vw;
+  grid-template-columns: 1fr 4fr;
+}
+
+#app-sidebar {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background-color: var(--dark-black);
+  color: white;
+  gap: 1rem;
+}
+
+#app-name {
+  padding: 0.5rem 1rem;
+}
+
+.add-task-button {
+  display: inline-flex;
+  border: none;
+  font-size: 1.5rem;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1.5rem;
+  gap: 0.5rem;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: var(--dark-black);
+  width: 100%;
+}
+
+.project-button {
+  background-color: var(--dark-black);
+  font-size: 2rem;
+  padding: 0.5rem 1.5rem;
+  border-radius: 0.5rem;
+  font-size: 1.5rem;
+  display: inline-flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer; /* Changes cursor to a hand pointing */
+  /* Smooth transition effect */
+  transition: background-color 0.3s ease;
+  width: 100%;
+}
+
+.clickable-button:hover {
+  background-color: #2980b9; /* Darker Blue on Hover */
+}
+
+#projects-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  font: inherit;
+  color: inherit;
+  color: white;
+}
+
+#projects-heading {
+  display: flex;
+  font-size: 2rem;
+  padding: 0.5rem 1rem;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  gap: 5rem;
+}
+
+.project-add-button {
+  justify-content: flex-end;
+}
+
+#main-app-page {
+  background-color: var(--light-black);
+  font: inherit;
+  color: inherit;
+  color: white;
+}
+
+.current-project {
+  padding: 0.5rem 1rem;
+}

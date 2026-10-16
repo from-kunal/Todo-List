@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>My Todo App</title>
+  </head>
+  <body>
+    <div id="app-container">
+      <nav id="app-sidebar">
+        <div id="app-name"><h1>My Todo App</h1></div>
+
+        <button
+          type="button"
+          class="add-task-button clickable-button"
+          data-action="add-todo"
+          data-project-id="inbox"
+        >
+          <img class="plus-icon" alt="plus-icon" />
+          <span>Add task</span>
+        </button>
+
+        <button
+          type="button"
+          class="project-button clickable-button"
+          data-project-id="inbox"
+          aria-current="true"
+        >
+          <img class="inbox-icon" alt="inbox-icon" />
+          Inbox
+        </button>
+
+        <div id="projects-container">
+          <div id="projects-heading">
+            <span>Projects</span>
+            <button
+              type="button"
+              class="project-button clickable-button project-add-button"
+              aria-current="false"
+            >
+              <img class="plus-icon" alt="" />
+            </button>
+          </div>
+        </div>
+      </nav>
+
+      <main id="main-app-page">
+        <header class="current-project"><h1>Inbox</h1></header>
+        <div id="app-section"></div>
+      </main>
+    </div>
+
+    <dialog id="add-todo-dialog">
+      <form method="dialog" id="add-todo-form">
+        <div>
+          <label for="todo-title">Title * </label><br />
+          <input type="text" id="todo-title" name="title" required />
+        </div>
+
+        <div>
+          <label for="todo-description">Description</label><br />
+          <textarea
+            placeholder="Description"
+            id="todo-description"
+            name="description"
+          ></textarea>
+        </div>
+
+        <div>
+          <label for="todo-due-date">Date</label><br />
+          <input type="date" id="todo-due-date" name="dueDate" />
+        </div>
+
+        <fieldset>
+          <legend>Priority</legend>
+        </fieldset>
+
+        <label>
+          <input type="radio" name="todo-priority" value="noPriority" checked />
+          No priority
+        </label>
+        <br />
+
+        <label>
+          <input type="radio" name="todo-priority" value="low" /> Low
+        </label>
+        <br />
+
+        <label>
+          <input type="radio" name="todo-priority" value="medium" />
+          Medium
+        </label>
+        <br />
+
+        <label>
+          <input type="radio" name="todo-priority" value="high" /> High
+        </label>
+        <br />
+
+        <button type="submit" id="save-add-task">Add Task</button>
+        <button type="button" id="cancel-add-task">Cancel</button>
+      </form>
+    </dialog>
+  </body>
+</html>
