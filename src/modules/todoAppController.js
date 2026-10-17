@@ -2,7 +2,7 @@ import { createProject, projectFromJSON } from "./project.js";
 import { createTodo } from "./todos.js";
 import { storage } from "./webStorage.js";
 
-const INBOX_ID = "inbox";
+export const INBOX_ID = "inbox";
 
 const seedInbox = () => {
   const inbox = createProject("Inbox");
