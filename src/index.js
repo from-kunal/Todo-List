@@ -1,6 +1,7 @@
 import "./styles.css";
 import plusIcon from "../assets/add_circle_69dp_FFFFFF_FILL0_wght700_GRAD200_opsz48.svg";
 import inboxIcon from "../assets/inbox_32dp_FFFFFF_FILL0_wght700_GRAD200_opsz40.svg";
+import deleteIcon from "../assets/delete_32dp_FFFFFF_FILL0_wght400_GRAD0_opsz40.svg";
 
 import { createTodoApp, INBOX_ID } from "./modules/todoAppController.js";
 
@@ -15,9 +16,7 @@ document.querySelectorAll("img.inbox-icon").forEach((img) => {
 const myTodoApp = createTodoApp();
 console.log(myTodoApp.getProjects());
 renderProjectList();
-// myTodoApp.createProject("heroToZero");
-//
-// myTodoApp.addTodo("heroToZero", "save 5 people", "", "", "very high");
+renderTodos(INBOX_ID);
 
 // render add todos dialog box
 // delegated on #app-container so the per-project "Add task" button in <main> is caught too
@@ -84,6 +83,13 @@ document.querySelector("#app-container").addEventListener("click", (event) => {
         .addEventListener("click", () => {
           document.querySelector("#add-project-dialog").close();
         });
+
+      break;
+
+    case "delete-todo":
+      myTodoApp.deleteTodo(btn.dataset.todoId, btn.dataset.projectId);
+      renderTodos(btn.dataset.projectId);
+      break;
   }
 });
 
@@ -121,11 +127,23 @@ function renderTodos(projectId) {
 
   currentProject.todos.forEach((todo) => {
     const li = document.createElement("li");
-    const btn = document.createElement("button");
+    li.textContent = todo.title;
 
-    btn.textContent = todo.title;
+    const delBtn = document.createElement("button");
 
-    li.append(btn);
+    delBtn.type = "button";
+    delBtn.className = "delete-button clickable-button";
+    delBtn.dataset.action = "delete-todo";
+    delBtn.dataset.todoId = todo.id;
+    delBtn.dataset.projectId = projectId;
+
+    const delIcon = document.createElement("img");
+    delIcon.className = "delete-icon";
+    delIcon.alt = "delete";
+    delIcon.src = deleteIcon; // imported at the top
+
+    delBtn.append(delIcon);
+    li.append(delBtn);
     todoSection.append(li);
   });
 

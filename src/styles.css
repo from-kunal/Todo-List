@@ -72,6 +72,11 @@ button {
 
 .clickable-button:hover {
   background-color: #2980b9; /* Darker Blue on Hover */
+  border-radius: 0.5rem;
+}
+
+.delete-icon:hover {
+  background-color: red;
 }
 
 #projects-container {
